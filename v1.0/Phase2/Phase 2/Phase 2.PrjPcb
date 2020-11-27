@@ -38,6 +38,40 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
+DocumentPath=..\..\..\..\library files\61201021721\61201021721.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=EQYEOCFF
+
+[Document2]
+DocumentPath=..\..\..\..\library files\61201021721\61201021721.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=IPAPJXWX
+
+[Document3]
 DocumentPath=..\..\NewSchematic\Sheet1motor.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -54,7 +88,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BLCLPRLN
 
-[Document2]
+[Document4]
 DocumentPath=..\..\18th November 2020\SchLib18thNov(1747785-1 8 pin connector).SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -71,7 +105,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ZMXKXBRC
 
-[Document3]
+[Document5]
 DocumentPath=..\..\18th November 2020\PcbLib18thNov.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -88,7 +122,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WNDKMTSA
 
-[Document4]
+[Document6]
 DocumentPath=..\..\NewSchematic\Motor19thnov2020.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -105,7 +139,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=AKAUUIJS
 
-[Document5]
+[Document7]
 DocumentPath=1747786-1 sch.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -122,7 +156,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MUTWDYNS
 
-[Document6]
+[Document8]
 DocumentPath=1747786-1.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -139,8 +173,25 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=OFIBTCHO
 
-[Document7]
-DocumentPath=..\..\18th November 2020\PcbLib18thNov.PcbLib
+[Document9]
+DocumentPath=..\..\..\..\..\..\Motor\Library\SectionE_BreakOut.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=LPRSPCRP
+
+[Document10]
+DocumentPath=..\..\..\..\..\..\Motor\Library\SectionE_BreakOut.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -156,8 +207,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document8]
-DocumentPath=..\..\18th November 2020\SchLib18thNov(1747785-1 8 pin connector).SchLib
+[Document11]
+DocumentPath=..\..\..\..\library files\61201021721.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0

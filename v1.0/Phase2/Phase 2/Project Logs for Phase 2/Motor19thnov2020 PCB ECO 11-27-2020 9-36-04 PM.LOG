@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=signal2 Pin=P?-2
+Removed Pin From Net: NetName=VM Pin=P?-3
+Removed Pin From Net: NetName=signal1 Pin=P?-4
+Removed Pin From Net: NetName=STBY Pin=P?-5
+Removed Pin From Net: NetName=Input 2 Pin=P?-7
+Removed Pin From Net: NetName=Input 1 Pin=P?-9
+Added Pin To Net: NetName=VM Pin=P?-2
+Added Pin To Net: NetName=signal1 Pin=P?-3
+Added Pin To Net: NetName=signal2 Pin=P?-4
+Added Pin To Net: NetName=Input 1 Pin=P?-5
+Added Pin To Net: NetName=Input 2 Pin=P?-6
+Added Pin To Net: NetName=STBY Pin=P?-7
