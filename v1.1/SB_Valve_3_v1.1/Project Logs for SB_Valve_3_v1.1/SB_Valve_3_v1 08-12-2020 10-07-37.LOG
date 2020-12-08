@@ -1,0 +1,66 @@
+Change Component Comment : Designator=R1 Old Comment=R1 New Comment=R4
+Change Component Comment : Designator=R2 Old Comment=R2 New Comment=R3
+Change Component Comment : Designator=R3 Old Comment=R3 New Comment=R5
+Change Component Comment : Designator=R4 Old Comment=R4 New Comment=R6
+Change Component Comment : Designator=R5 Old Comment=R5 New Comment=R2
+Change Component Comment : Designator=R6 Old Comment=R6 New Comment=R1
+Added Pin To Net: NetName=GND Pin=D1-1
+Added Pin To Net: NetName=GND Pin=D2-1
+Added Pin To Net: NetName=GND Pin=D3-1
+Added Pin To Net: NetName=GND Pin=D4-1
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=GND Pin=J2-1
+Added Pin To Net: NetName=GND Pin=U1-3
+Added Pin To Net: NetName=GND Pin=U1-8
+Added Pin To Net: NetName=GND Pin=U1-9
+Added Net: Name=GND
+Added Pin To Net: NetName=Input 1 Pin=U1-12
+Added Pin To Net: NetName=Input 1 Pin=U1-14
+Added Net: Name=Input 1
+Added Pin To Net: NetName=Input 2 Pin=U1-11
+Added Pin To Net: NetName=Input 2 Pin=U1-15
+Added Net: Name=Input 2
+Added Pin To Net: NetName=NetD1_2 Pin=D1-2
+Added Pin To Net: NetName=NetD1_2 Pin=R1-2
+Added Net: Name=NetD1_2
+Added Pin To Net: NetName=NetD2_2 Pin=D2-2
+Added Pin To Net: NetName=NetD2_2 Pin=R2-2
+Added Net: Name=NetD2_2
+Added Pin To Net: NetName=NetD3_2 Pin=D3-2
+Added Pin To Net: NetName=NetD3_2 Pin=R3-2
+Added Net: Name=NetD3_2
+Added Pin To Net: NetName=NetD4_2 Pin=D4-2
+Added Pin To Net: NetName=NetD4_2 Pin=R4-2
+Added Net: Name=NetD4_2
+Added Pin To Net: NetName=NetR6_1 Pin=R6-1
+Added Pin To Net: NetName=NetR6_1 Pin=U1-10
+Added Pin To Net: NetName=NetR6_1 Pin=U1-16
+Added Net: Name=NetR6_1
+Added Pin To Net: NetName=output1 Pin=R3-1
+Added Pin To Net: NetName=output1 Pin=S1-1
+Added Pin To Net: NetName=output1 Pin=U1-4
+Added Pin To Net: NetName=output1 Pin=U1-7
+Added Net: Name=output1
+Added Pin To Net: NetName=output2 Pin=R4-1
+Added Pin To Net: NetName=output2 Pin=S1-2
+Added Pin To Net: NetName=output2 Pin=U1-5
+Added Pin To Net: NetName=output2 Pin=U1-6
+Added Net: Name=output2
+Added Pin To Net: NetName=signal1 Pin=J1-3
+Added Net: Name=signal1
+Added Pin To Net: NetName=signal2 Pin=J2-3
+Added Net: Name=signal2
+Added Pin To Net: NetName=STBY Pin=R5-1
+Added Pin To Net: NetName=STBY Pin=U1-13
+Added Net: Name=STBY
+Added Pin To Net: NetName=VCC Pin=J1-4
+Added Pin To Net: NetName=VCC Pin=J2-4
+Added Pin To Net: NetName=VCC Pin=R2-1
+Added Pin To Net: NetName=VCC Pin=R5-2
+Added Pin To Net: NetName=VCC Pin=R6-2
+Added Pin To Net: NetName=VCC Pin=U1-2
+Added Net: Name=VCC
+Added Pin To Net: NetName=VM Pin=R1-1
+Added Pin To Net: NetName=VM Pin=U1-1
+Added Net: Name=VM
+Added Class: Name=SB_Valve_3_v1.1

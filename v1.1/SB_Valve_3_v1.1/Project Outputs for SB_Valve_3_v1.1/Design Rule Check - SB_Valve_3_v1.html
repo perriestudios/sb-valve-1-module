@@ -1,0 +1,472 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">08-12-2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">13:32:38</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc" class="file"><acronym title="C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc">C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">48</td></tr>
+</table>
+</td>
+</table><a name="IDAX2JOXYMBFOSM4OZOIBNZZRDLFDFTTSHFMSSEXNW140SKQLRJW3G"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQ2LVHZ3S44IHOB5IWTDHQMDGGC0WDSYEXPJ4Q2GGPCHXREVYVO4G">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQ00JWJLZZEGNL3FWSKBD4FENKL0HIWHBN2MW3UB4XGCPLNY0YBUG">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQQDG1WKN5KQPLEQYWKX2WY2QUMMCCGDCV34ZVXFL1POHEWIB2PEF">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYAYYIW2QUYKKHJWMWJKKVXX31OEQ0DD3JSIUJQKWNGIDPOADQC5E">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEZ5TXIMXBTNSW1HQBSHS2WZNL31MUUXDCNFFTF4RMOJC3K15MAD">Width Constraint (Min=0.254mm) (Max=1mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFV33CFU2MSIECW4SWVB2RJN1GEDBHFZMUXIXQWCDZ34Z01W5FHXJ">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIZLDPCKRSKV4MK4WVHYTJU5TIFKDKECNJTDLAOLBNR3A3BSFXO1L">Hole Size Constraint (Min=0.025mm) (Max=4mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSQP5SUDFHMO3EIOZYC0XU1NF1EWA3WN1KU54MFFVX0CIY1Y2GFYH">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCKDWLT3KYRZPO2H3E1LEMHHJCEZKO2TJWQUHS1N3YIYJVE5X0CDG">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSL0LWSSFVEDSPHJ5FIKMIYSX0JBGJXSO1HNNVZH5M4RIEYOGSNNC">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">48</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDE5QKODAWJN50HEOWLZFIULQKHCTYEMO5ZS5W1BBVS5XKHJWXLBND">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMFZNNYVYTI2SH34A2O5QZQR4VBUTQAM2ZHZ0DINQFHTS3Q003X3L">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWOBKSZLIDECZC4DEPJLTAXVUWRY1AKCEPRTPYO10ZHLWEQDOC4E">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">48</td>
+</tr>
+</table><br><a name="IDSL0LWSSFVEDSPHJ5FIKMIYSX0JBGJXSO1HNNVZH5M4RIEYOGSNNC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1674.985mil|Location2.X=1686.235mil|Location1.Y=1131.776mil|Location2.Y=1143.026mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1674.985mil|Location2.X=1686.235mil|Location1.Y=1131.776mil|Location2.Y=1143.026mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.225mm &lt; 0.254mm) Between Arc (17.025mm,3.49mm) on Top Overlay And Pad D4-1(17.7mm,3.49mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.225mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.883mil|Location2.X=2505.133mil|Location1.Y=1131.776mil|Location2.Y=1143.026mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.883mil|Location2.X=2505.133mil|Location1.Y=1131.776mil|Location2.Y=1143.026mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.225mm &lt; 0.254mm) Between Arc (37.825mm,3.49mm) on Top Overlay And Pad D3-1(38.5mm,3.49mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.225mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1163.449mil|Location2.X=1174.699mil|Location1.Y=2409.871mil|Location2.Y=2421.121mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1163.449mil|Location2.X=1174.699mil|Location1.Y=2409.871mil|Location2.Y=2421.121mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.225mm &lt; 0.254mm) Between Arc (4.032mm,35.954mm) on Top Overlay And Pad D1-1(4.707mm,35.954mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.225mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1327.399mil|Location2.X=1338.649mil|Location1.Y=2409.871mil|Location2.Y=2421.121mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1327.399mil|Location2.X=1338.649mil|Location1.Y=2409.871mil|Location2.Y=2421.121mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.225mm &lt; 0.254mm) Between Arc (8.196mm,35.954mm) on Top Overlay And Pad D2-1(8.871mm,35.954mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.225mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1706.973mil|Location2.X=1718.223mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1706.973mil|Location2.X=1718.223mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Area Fill (18.2mm,3.19mm) (18.375mm,3.79mm) on Top Overlay And Pad D4-1(17.7mm,3.49mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2525.871mil|Location2.X=2537.121mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2525.871mil|Location2.X=2537.121mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Area Fill (39mm,3.19mm) (39.175mm,3.79mm) on Top Overlay And Pad D3-1(38.5mm,3.49mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1195.438mil|Location2.X=1206.688mil|Location1.Y=2398.061mil|Location2.Y=2409.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1195.438mil|Location2.X=1206.688mil|Location1.Y=2398.061mil|Location2.Y=2409.311mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Area Fill (5.207mm,35.654mm) (5.382mm,36.254mm) on Top Overlay And Pad D1-1(4.707mm,35.954mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1359.387mil|Location2.X=1370.637mil|Location1.Y=2398.061mil|Location2.Y=2409.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1359.387mil|Location2.X=1370.637mil|Location1.Y=2398.061mil|Location2.Y=2409.311mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Area Fill (9.371mm,35.654mm) (9.546mm,36.254mm) on Top Overlay And Pad D2-1(8.871mm,35.954mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1195.437mil|Location2.X=1206.687mil|Location1.Y=2398.061mil|Location2.Y=2409.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1195.437mil|Location2.X=1206.687mil|Location1.Y=2398.061mil|Location2.Y=2409.311mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D1-1(4.707mm,35.954mm) on Top Layer And Track (5.257mm,35.654mm)(5.557mm,35.654mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1195.437mil|Location2.X=1206.687mil|Location1.Y=2421.683mil|Location2.Y=2432.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1195.437mil|Location2.X=1206.687mil|Location1.Y=2421.683mil|Location2.Y=2432.933mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D1-1(4.707mm,35.954mm) on Top Layer And Track (5.257mm,36.254mm)(5.557mm,36.254mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.061mil|Location2.X=1230.311mil|Location1.Y=2398.062mil|Location2.Y=2409.312mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.061mil|Location2.X=1230.311mil|Location1.Y=2398.062mil|Location2.Y=2409.312mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D1-2(6.107mm,35.954mm) on Top Layer And Track (5.257mm,35.654mm)(5.557mm,35.654mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.061mil|Location2.X=1230.311mil|Location1.Y=2421.683mil|Location2.Y=2432.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.061mil|Location2.X=1230.311mil|Location1.Y=2421.683mil|Location2.Y=2432.933mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D1-2(6.107mm,35.954mm) on Top Layer And Track (5.257mm,36.254mm)(5.557mm,36.254mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1359.387mil|Location2.X=1370.637mil|Location1.Y=2398.061mil|Location2.Y=2409.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1359.387mil|Location2.X=1370.637mil|Location1.Y=2398.061mil|Location2.Y=2409.311mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D2-1(8.871mm,35.954mm) on Top Layer And Track (9.421mm,35.654mm)(9.721mm,35.654mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1359.387mil|Location2.X=1370.637mil|Location1.Y=2421.683mil|Location2.Y=2432.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1359.387mil|Location2.X=1370.637mil|Location1.Y=2421.683mil|Location2.Y=2432.933mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D2-1(8.871mm,35.954mm) on Top Layer And Track (9.421mm,36.254mm)(9.721mm,36.254mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1383.01mil|Location2.X=1394.26mil|Location1.Y=2398.062mil|Location2.Y=2409.312mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1383.01mil|Location2.X=1394.26mil|Location1.Y=2398.062mil|Location2.Y=2409.312mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D2-2(10.271mm,35.954mm) on Top Layer And Track (9.421mm,35.654mm)(9.721mm,35.654mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1383.01mil|Location2.X=1394.26mil|Location1.Y=2421.683mil|Location2.Y=2432.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1383.01mil|Location2.X=1394.26mil|Location1.Y=2421.683mil|Location2.Y=2432.933mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D2-2(10.271mm,35.954mm) on Top Layer And Track (9.421mm,36.254mm)(9.721mm,36.254mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2525.871mil|Location2.X=2537.121mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2525.871mil|Location2.X=2537.121mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D3-1(38.5mm,3.49mm) on Top Layer And Track (39.05mm,3.19mm)(39.35mm,3.19mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2525.871mil|Location2.X=2537.121mil|Location1.Y=1143.588mil|Location2.Y=1154.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2525.871mil|Location2.X=2537.121mil|Location1.Y=1143.588mil|Location2.Y=1154.838mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D3-1(38.5mm,3.49mm) on Top Layer And Track (39.05mm,3.79mm)(39.35mm,3.79mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2549.495mil|Location2.X=2560.745mil|Location1.Y=1119.967mil|Location2.Y=1131.217mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2549.495mil|Location2.X=2560.745mil|Location1.Y=1119.967mil|Location2.Y=1131.217mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D3-2(39.9mm,3.49mm) on Top Layer And Track (39.05mm,3.19mm)(39.35mm,3.19mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2549.495mil|Location2.X=2560.745mil|Location1.Y=1143.588mil|Location2.Y=1154.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2549.495mil|Location2.X=2560.745mil|Location1.Y=1143.588mil|Location2.Y=1154.838mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D3-2(39.9mm,3.49mm) on Top Layer And Track (39.05mm,3.79mm)(39.35mm,3.79mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1706.973mil|Location2.X=1718.223mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1706.973mil|Location2.X=1718.223mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D4-1(17.7mm,3.49mm) on Top Layer And Track (18.25mm,3.19mm)(18.55mm,3.19mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1706.973mil|Location2.X=1718.223mil|Location1.Y=1143.588mil|Location2.Y=1154.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1706.973mil|Location2.X=1718.223mil|Location1.Y=1143.588mil|Location2.Y=1154.838mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D4-1(17.7mm,3.49mm) on Top Layer And Track (18.25mm,3.79mm)(18.55mm,3.79mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1730.596mil|Location2.X=1741.846mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1730.596mil|Location2.X=1741.846mil|Location1.Y=1119.966mil|Location2.Y=1131.216mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D4-2(19.1mm,3.49mm) on Top Layer And Track (18.25mm,3.19mm)(18.55mm,3.19mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1730.596mil|Location2.X=1741.846mil|Location1.Y=1143.588mil|Location2.Y=1154.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1730.596mil|Location2.X=1741.846mil|Location1.Y=1143.588mil|Location2.Y=1154.838mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.2mm &lt; 0.254mm) Between Pad D4-2(19.1mm,3.49mm) on Top Layer And Track (18.25mm,3.79mm)(18.55mm,3.79mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.2mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1935.949mil|Location2.X=1947.199mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1935.949mil|Location2.X=1947.199mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R1-1(24.266mm,21.708mm) on Top Layer And Track (23.916mm,22.258mm)(23.916mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1963.509mil|Location2.X=1974.759mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1963.509mil|Location2.X=1974.759mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R1-1(24.266mm,21.708mm) on Top Layer And Track (24.616mm,22.258mm)(24.616mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1935.949mil|Location2.X=1947.199mil|Location1.Y=1892.338mil|Location2.Y=1903.588mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1935.949mil|Location2.X=1947.199mil|Location1.Y=1892.338mil|Location2.Y=1903.588mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R1-2(24.266mm,23.208mm) on Top Layer And Track (23.916mm,22.258mm)(23.916mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1966.358mil|Location2.X=1979.326mil|Location1.Y=1892.13mil|Location2.Y=1903.38mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1966.358mil|Location2.X=1979.326mil|Location1.Y=1892.13mil|Location2.Y=1903.38mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R1-2(24.266mm,23.208mm) on Top Layer And Track (24.616mm,22.258mm)(24.616mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1935.949mil|Location2.X=1947.199mil|Location1.Y=2075.241mil|Location2.Y=2086.491mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1935.949mil|Location2.X=1947.199mil|Location1.Y=2075.241mil|Location2.Y=2086.491mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R2-1(24.266mm,27.054mm) on Top Layer And Track (23.916mm,27.604mm)(23.916mm,28.004mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1963.509mil|Location2.X=1974.759mil|Location1.Y=2075.241mil|Location2.Y=2086.491mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1963.509mil|Location2.X=1974.759mil|Location1.Y=2075.241mil|Location2.Y=2086.491mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R2-1(24.266mm,27.054mm) on Top Layer And Track (24.616mm,27.604mm)(24.616mm,28.004mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1935.949mil|Location2.X=1947.199mil|Location1.Y=2102.8mil|Location2.Y=2114.05mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1935.949mil|Location2.X=1947.199mil|Location1.Y=2102.8mil|Location2.Y=2114.05mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R2-2(24.266mm,28.554mm) on Top Layer And Track (23.916mm,27.604mm)(23.916mm,28.004mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1966.358mil|Location2.X=1979.326mil|Location1.Y=2102.593mil|Location2.Y=2113.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1966.358mil|Location2.X=1979.326mil|Location1.Y=2102.593mil|Location2.Y=2113.843mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R2-2(24.266mm,28.554mm) on Top Layer And Track (24.616mm,27.604mm)(24.616mm,28.004mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.949mil|Location2.X=2127.199mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.949mil|Location2.X=2127.199mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R3-1(28.838mm,21.708mm) on Top Layer And Track (28.488mm,22.258mm)(28.488mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2143.509mil|Location2.X=2154.759mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2143.509mil|Location2.X=2154.759mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R3-1(28.838mm,21.708mm) on Top Layer And Track (29.188mm,22.258mm)(29.188mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.949mil|Location2.X=2127.199mil|Location1.Y=1892.338mil|Location2.Y=1903.588mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.949mil|Location2.X=2127.199mil|Location1.Y=1892.338mil|Location2.Y=1903.588mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R3-2(28.838mm,23.208mm) on Top Layer And Track (28.488mm,22.258mm)(28.488mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2146.358mil|Location2.X=2159.326mil|Location1.Y=1892.13mil|Location2.Y=1903.38mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2146.358mil|Location2.X=2159.326mil|Location1.Y=1892.13mil|Location2.Y=1903.38mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R3-2(28.838mm,23.208mm) on Top Layer And Track (29.188mm,22.258mm)(29.188mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2305.949mil|Location2.X=2317.199mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2305.949mil|Location2.X=2317.199mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R4-1(33.664mm,21.708mm) on Top Layer And Track (33.314mm,22.258mm)(33.314mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2333.509mil|Location2.X=2344.759mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2333.509mil|Location2.X=2344.759mil|Location1.Y=1864.778mil|Location2.Y=1876.028mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R4-1(33.664mm,21.708mm) on Top Layer And Track (34.014mm,22.258mm)(34.014mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2305.949mil|Location2.X=2317.199mil|Location1.Y=1892.338mil|Location2.Y=1903.588mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2305.949mil|Location2.X=2317.199mil|Location1.Y=1892.338mil|Location2.Y=1903.588mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R4-2(33.664mm,23.208mm) on Top Layer And Track (33.314mm,22.258mm)(33.314mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2336.358mil|Location2.X=2349.326mil|Location1.Y=1892.13mil|Location2.Y=1903.38mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2336.358mil|Location2.X=2349.326mil|Location1.Y=1892.13mil|Location2.Y=1903.38mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R4-2(33.664mm,23.208mm) on Top Layer And Track (34.014mm,22.258mm)(34.014mm,22.658mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.949mil|Location2.X=2127.199mil|Location1.Y=2102.8mil|Location2.Y=2114.05mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.949mil|Location2.X=2127.199mil|Location1.Y=2102.8mil|Location2.Y=2114.05mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R5-1(28.838mm,28.554mm) on Top Layer And Track (28.488mm,27.604mm)(28.488mm,28.004mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2146.358mil|Location2.X=2159.326mil|Location1.Y=2102.593mil|Location2.Y=2113.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2146.358mil|Location2.X=2159.326mil|Location1.Y=2102.593mil|Location2.Y=2113.843mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R5-1(28.838mm,28.554mm) on Top Layer And Track (29.188mm,27.604mm)(29.188mm,28.004mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.949mil|Location2.X=2127.199mil|Location1.Y=2075.241mil|Location2.Y=2086.491mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2115.949mil|Location2.X=2127.199mil|Location1.Y=2075.241mil|Location2.Y=2086.491mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R5-2(28.838mm,27.054mm) on Top Layer And Track (28.488mm,27.604mm)(28.488mm,28.004mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2143.509mil|Location2.X=2154.759mil|Location1.Y=2075.241mil|Location2.Y=2086.491mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2143.509mil|Location2.X=2154.759mil|Location1.Y=2075.241mil|Location2.Y=2086.491mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R5-2(28.838mm,27.054mm) on Top Layer And Track (29.188mm,27.604mm)(29.188mm,28.004mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2307.367mil|Location2.X=2318.617mil|Location1.Y=2102.643mil|Location2.Y=2113.893mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2307.367mil|Location2.X=2318.617mil|Location1.Y=2102.643mil|Location2.Y=2113.893mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R6-1(33.7mm,28.55mm) on Top Layer And Track (33.35mm,27.6mm)(33.35mm,28mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2337.775mil|Location2.X=2350.744mil|Location1.Y=2102.435mil|Location2.Y=2113.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2337.775mil|Location2.X=2350.744mil|Location1.Y=2102.435mil|Location2.Y=2113.685mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R6-1(33.7mm,28.55mm) on Top Layer And Track (34.05mm,27.6mm)(34.05mm,28mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2307.367mil|Location2.X=2318.617mil|Location1.Y=2075.083mil|Location2.Y=2086.333mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2307.367mil|Location2.X=2318.617mil|Location1.Y=2075.083mil|Location2.Y=2086.333mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R6-2(33.7mm,27.05mm) on Top Layer And Track (33.35mm,27.6mm)(33.35mm,28mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2334.927mil|Location2.X=2346.177mil|Location1.Y=2075.083mil|Location2.Y=2086.333mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\My Files\GenInfy\PCB Designs\SB_Valve_3\v1.1\SB_Valve_3_v1.1\SB_Valve_3_v1.1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2334.927mil|Location2.X=2346.177mil|Location1.Y=2075.083mil|Location2.Y=2086.333mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R6-2(33.7mm,27.05mm) on Top Layer And Track (34.05mm,27.6mm)(34.05mm,28mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
